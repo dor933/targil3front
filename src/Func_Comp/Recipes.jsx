@@ -2,14 +2,18 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
-import Accordion from 'react-bootstrap/Accordion';
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+import { Card,Row,Col,Button } from 'react-bootstrap';
+
 
 function IndividualIntervalsExample(props) {
 
     const [recipes, setRecipes] = React.useState([]);
     const [activeKey, setActiveKey] = useState(null);
+    const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
 
 
@@ -32,7 +36,7 @@ function IndividualIntervalsExample(props) {
 
   return (
     <>
-    <Carousel onSlide={()=> setActiveKey(null)} style={{height:"80%",width:"50%",margin:"auto"}}>
+    <Carousel onSlide={()=> {setActiveKey(null); setShow(false)}} style={{height:"80%",width:"50%",margin:"auto"}}>
 
       {recipes.map((recipe) => {
         return <Carousel.Item interval={10000}>
@@ -65,9 +69,50 @@ View Details
             </Card.Text>
             <Card.Text>
               Cooking Method:{activeKey.cookingmethod}
-
             </Card.Text>
-            <Button onClick={() => setActiveKey(null)}>
+            <Card.Text>
+            <Button variant="primary" onClick={handleShow}>
+         Show Ingerdients
+      </Button>
+      </Card.Text>
+            <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title style={{margin:"auto"}}>Recipe Ingerdients</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+        <Row className="mx-auto" style={{marginTop:"30px", marginBottom:"50px"}}>
+            {activeKey.ingerdients.map((card) => (
+              <Col key={card.id} md={6}>
+                <Card bg='info' style={{marginBottom:"10px",height:"100%", paddingBottom:"10px"}}>
+                       
+                  <Card.Body style={{height:"100%", width:"100%",margin:"auto"}}>
+          
+                 <Card.Img variant="top" src={card.imageurl} style={{height:'80%',width:"100%", margin:"auto"}}  />
+
+                <Card.Text style={{textAlign:"center",height:"20%"}}>
+                {card.name} <br/>
+                Calories:{card.calories}
+
+                </Card.Text>
+                
+
+                    {/* <Card.Title>{card.name}</Card.Title> */}
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))}
+          </Row>        
+
+
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose} style={{margin:"auto"}}>
+            Close
+          </Button>
+      
+        </Modal.Footer>
+      </Modal>
+            <Button variant='danger' onClick={() => setActiveKey(null)} style={{marginTop:"30px"}}>
                 Hide Details
             </Button>
         </Card.Body>
