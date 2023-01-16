@@ -61,6 +61,9 @@ View Details
             Name: {activeKey.name}
         </Card.Title>
         <Card.Body>
+        <Card.Text>
+                Id: {activeKey.id}
+            </Card.Text>
             <Card.Text>
                 Calories: {activeKey.calories}
             </Card.Text>

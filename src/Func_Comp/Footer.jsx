@@ -1,6 +1,7 @@
-export default function Footer() {
 
-    return(
+
+const Footer=
+  
         <div>
         <footer style={{ width:"100%", textAlign:"center", paddingBottom:"35px",marginTop:"15px"}} class="bg-light">
   <div class="container">
@@ -13,6 +14,10 @@ export default function Footer() {
   </div>
 </footer>
 </div>
-    )
+    
 
-    }
+
+
+export default Footer;
+
+    

@@ -2,8 +2,9 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
-function BasicExample() {
-  return (
+
+const MyNav=
+<div>
     <Navbar bg="light" expand="lg">
       <Container>
         <Navbar.Brand href="#home" style={{marginLeft:"100px"}}>My Kitchen</Navbar.Brand>
@@ -18,7 +19,8 @@ function BasicExample() {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-  );
-}
+    </div>
+  
 
-export default BasicExample;
+
+export default MyNav;
