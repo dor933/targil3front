@@ -19,7 +19,7 @@ function IndividualIntervalsExample(props) {
 
   useEffect(() => {
 
-    fetch("https://localhost:44380/api/Default" ,{
+    fetch("https://localhost:44372/api/Default" ,{
       method: 'GET',
       headers: new Headers({
       'Content-Type': 'application/json; charset=UTF-8',
@@ -85,7 +85,7 @@ View Details
         <Modal.Body>
         <Row className="mx-auto" style={{marginTop:"30px", marginBottom:"50px"}}>
             {activeKey.ingerdients.map((card) => (
-              <Col key={card.id} md={6}>
+              <Col key={card.id} md={6} style={{marginBottom:"10px"}}>
                 <Card bg='info' style={{marginBottom:"10px",height:"100%", paddingBottom:"10px"}}>
                        
                   <Card.Body style={{height:"100%", width:"100%",margin:"auto"}}>

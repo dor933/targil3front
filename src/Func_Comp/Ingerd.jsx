@@ -23,7 +23,7 @@ const Ingerd = () => {
             calories: ingerdcalories
         }
 
-        let response=await fetch("https://localhost:44380/api/Default/ingerd" ,{
+        let response=await fetch("https://localhost:44372/api/Default/ingerd" ,{
             method: 'POST',
             body: JSON.stringify(newingerd),
             headers: new Headers({

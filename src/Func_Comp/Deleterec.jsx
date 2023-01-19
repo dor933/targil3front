@@ -13,7 +13,7 @@ const Deleterec = () => {
         let reason=document.getElementById("formreason").value;
 
         try{
-      let response=await fetch(`https://localhost:44380/api/Default/deleterec/${id}` ,{
+      let response=await fetch(`https://localhost:44372/api/Default/deleterec/${id}` ,{
             method: 'DELETE',
             body: JSON.stringify(reason),
             headers: new Headers({

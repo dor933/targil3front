@@ -23,7 +23,7 @@ const CreateRec = () => {
 
 async function fetchdata(){
 
-  await fetch("https://localhost:44380/api/Default/ingerd" ,{
+  await fetch("https://localhost:44372/api/Default/ingerd" ,{
       method: 'GET',
       headers: new Headers({
       'Content-Type': 'application/json; charset=UTF-8',
@@ -63,7 +63,7 @@ async function fetchdata(){
         };
 
 
-        let response=await fetch('https://localhost:44380/api/Default/recipe', {
+        let response=await fetch('https://localhost:44372/api/Default/recipe', {
             method: 'post',
             headers: {
                 "Content-Type": "application/json"
